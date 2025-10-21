@@ -34,21 +34,32 @@ static int	count_words(char const *s, char c)
 	return (count);
 }
 
-void	ft_copy(char const *s, char *arr, int start, int end)
+static void	free_word(char **arr, int k)
 {
-	int	j;
+	int	i;
 
-	j = 0;
-	while (start < end)
+	i = 0;
+	if (!arr)
+		return ;
+	while (i < k)
 	{
-		arr[j] = s[start];
-		j++;
-		start++;
+		free(arr[i]);
+		i++;
 	}
-	arr[j] = '\0';
+	free(arr);
 }
 
-void	ft_all_copy(char const *s, char **arr, char c)
+static int	check_arr(char **arr, int k)
+{
+	if (!arr[k])
+	{
+		free_word(arr, k);
+		return (0);
+	}
+	return (1);
+}
+
+static int	ft_all_copy(char const *s, char **arr, char c)
 {
 	int	i;
 	int	start;
@@ -67,12 +78,14 @@ void	ft_all_copy(char const *s, char **arr, char c)
 		end = i;
 		if (end > start)
 		{
-			arr[k] = malloc((end - start + 1) * sizeof(char));
-			ft_copy(s, arr[k], start, end);
+			arr[k] = ft_substr(s, start, (end - start));
+			if (!check_arr(arr, k))
+				return (0);
 			k++;
 		}
 	}
 	arr[k] = NULL;
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -84,15 +97,16 @@ char	**ft_split(char const *s, char c)
 	arr = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);
-	ft_all_copy(s, arr, c);
+	if (!ft_all_copy(s, arr, c))
+		return (NULL);
 	return (arr);
 }
-/*
-#include <stdio.h>
+
+/*#include <stdio.h>
 int main()
 {
-	char str[]="hi , noman , khawla";
-	char sep=',';
+	char str[]="^^^1^^2a,^^^^3^^^^--h^^^^";
+	char sep='^';
 	char **arr=ft_split(str,sep);
 	int j = 0;
 	while(arr[j])
@@ -103,4 +117,5 @@ int main()
 	}
 	free(arr);
 	return (0);
-}*/
+}
+*/

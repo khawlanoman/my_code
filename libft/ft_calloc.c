@@ -19,8 +19,6 @@ void	*ft_calloc(size_t num, size_t size)
 	if (num != 0 && size > SIZE_MAX / num)
 		return (NULL);
 	total = num * size;
-	if (total == 0)
-		total = 1;
 	str = malloc(total);
 	if (!str)
 		return (NULL);
