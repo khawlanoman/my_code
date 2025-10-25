@@ -6,7 +6,7 @@
 /*   By: khnoman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:20:47 by khnoman           #+#    #+#             */
-/*   Updated: 2025/10/21 10:44:47 by khnoman          ###   ########.fr       */
+/*   Updated: 2025/10/24 09:43:51 by khnoman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -101,21 +101,3 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (arr);
 }
-
-/*#include <stdio.h>
-int main()
-{
-	char str[]="^^^1^^2a,^^^^3^^^^--h^^^^";
-	char sep='^';
-	char **arr=ft_split(str,sep);
-	int j = 0;
-	while(arr[j])
-	{
-		printf("%s\n",arr[j]);
-		free(arr[j]);
-		j++;
-	}
-	free(arr);
-	return (0);
-}
-*/

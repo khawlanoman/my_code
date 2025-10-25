@@ -21,10 +21,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	k = 0;
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
 	if (!s1 || !s2)
 		return (0);
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
 	str = malloc((len_s1 + len_s2 + 1) * sizeof(char));
 	if (!str)
 		return (NULL);

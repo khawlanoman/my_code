@@ -6,7 +6,7 @@
 /*   By: khnoman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:15:34 by khnoman           #+#    #+#             */
-/*   Updated: 2025/10/18 10:14:52 by khnoman          ###   ########.fr       */
+/*   Updated: 2025/10/24 20:01:14 by khnoman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	i = 0;
 	len_src = ft_strlen(src);
 	len_dst = ft_strlen(dst);
-	if (size == 0)
+	if (!dst || size == 0)
 	{
 		return (len_src);
 	}

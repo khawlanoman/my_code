@@ -13,10 +13,8 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int		i;
 	long	nb;
 
-	i = 0;
 	nb = n;
 	if (nb == 0)
 	{

@@ -13,10 +13,8 @@
 
 static int	count_num(long n)
 {
-	int	i;
 	int	count;
 
-	i = 0;
 	count = 0;
 	if (n == 0)
 		count++;

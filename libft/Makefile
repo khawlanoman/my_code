@@ -41,7 +41,7 @@ SRC =	ft_isalpha.c\
 
 OBJ = $(SRC:.c=.o)
 CC = cc
-FLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror 
 
 SRC_BONUS =	ft_lstnew_bonus.c\
 		ft_lstadd_front_bonus.c\
@@ -72,3 +72,4 @@ fclean:	clean
 re: fclean all
 
 .PHONY: all clean bonus fclean re
+.SECONDARY:	$(OBJ) $(OBJ_BONUS)
